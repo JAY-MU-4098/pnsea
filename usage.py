@@ -32,6 +32,17 @@ if __name__ == "__main__":
   """Market Status"""
   #print(nse.equity.market_status())
 
+  """All Indices Snapshot"""
+  #all_indices = nse.equity.all_indices()
+  #print(all_indices[['index', 'last', 'percentChange']].head())
+
+  """Find Specific Index (e.g. INDIA VIX)"""
+  #vix = nse.equity.find_index("INDIA VIX")
+  #if vix:
+  #    print(f"Index: {vix['index']}")
+  #    print(f"Last Price: {vix['last']}")
+  #    print(f"Percent Change: {vix['percentChange']}%")
+
   """
   Insider Data
   """

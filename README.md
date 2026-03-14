@@ -1,4 +1,4 @@
-PNSEA - Python NSE API (v1.0.0)
+PNSEA - Python NSE API (v1.1.0)
 ===============================
 
 **PNSEA** is a high-performance, stealthy Python library for fetching data from the National Stock Exchange of India (NSE). Powered by **Stealthkit** to bypass rate limits and blocks.
@@ -45,6 +45,13 @@ print(nse.equity.info("SBIN")['info'])
 # All Stocks Snapshot & Market Status
 print(nse.equity.all_stocks_data())
 print(nse.equity.market_status())
+
+# Snapshot: Snapshot for all indices (NIFTY 50, INDIA VIX, etc.)
+print(nse.equity.all_indices())
+
+# Find data for a specific index by name
+vix_data = nse.equity.find_index("INDIA VIX")
+print(vix_data)
 
 # Historical Data (Returns DataFrame)
 print(nse.equity.history("ESCORTS", "01-02-2025", "14-02-2025"))

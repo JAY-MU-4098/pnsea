@@ -37,3 +37,5 @@ class NSEEndpoints:
 
     # MF Endpoints
     MF_INSIDER_DATA: Final = f"{BASE_URL}/api/corporate-event-disclosure"
+
+    ALL_INDICES: Final = f"{BASE_URL}/api/allIndices"

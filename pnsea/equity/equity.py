@@ -112,3 +112,26 @@ class Equity:
         res = self.session.get(url = NSEEndpoints.ALL_STOCK_DATA)
         data = res.json()['total']['data']
         return data
+    
+    def all_indices(self):
+        """
+        Fetches all NSE indices data.
+        Returns a DataFrame with index names, last values, percentage changes, etc.
+        """
+        res = self.session.get(url=NSEEndpoints.ALL_INDICES)
+        data = res.json().get('data', [])
+        return pd.DataFrame(data)
+
+    def find_index(self, index_name: str):
+        """
+        Finds specific index data by name (e.g., 'INDIA VIX', 'NIFTY 50').
+        Returns a dictionary of index data.
+        """
+        df = self.all_indices()
+        if df.empty:
+            return {}
+        
+        filtered = df[df['index'] == index_name]
+        if not filtered.empty:
+            return filtered.iloc[0].to_dict()
+        return {}
